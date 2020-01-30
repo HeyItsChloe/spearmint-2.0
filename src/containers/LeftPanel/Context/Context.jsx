@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styles from '../Context/Context.module.scss';
 //import styles2 from '../AutoComplete/AutoCompleteMockData.module.scss';
 
-import { deleteContext, updateContext } from '../../../context/testCaseActions';
+import { deleteContexts, updateContexts } from '../../../context/testCaseActions';
 import { Draggable } from 'react-beautiful-dnd';
 //import AutoComplete from '../AutoComplete/AutoComplete';
 //import AutoCompleteMockData from '../AutoComplete/AutoCompleteMockData';
@@ -18,11 +18,11 @@ const Context = ({ context, index, dispatchToTestCase }) => {
     const handleChangeContextFields = (e, field) => { 
         let updatedContext = { ...context };
         updatedContext[field] = e.target.value;
-        dispatchToTestCase(updateContext(updatedContext));
+        dispatchToTestCase(updateContexts(updatedContext));
      };
 
     const handleClickDeleteContext = e => {
-        dispatchToTestCase(deleteContext(context.id))
+        dispatchToTestCase(deleteContexts(context.id))
     }
 
 
@@ -57,8 +57,8 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                         <option value='' />
                         <option value='shows_default_value'>shows_default_value</option>
                         <option value='shows_value_from_provider'>shows_value_from_provider</option>
-                        <option value='renders_providers_+_consumers_normally'>renders_providers_+_consumers_normally</option>
                         <option value='component_provides_context_value'>component_provides_context_value</option>
+                        <option value='renders_providers_+_consumers_normally'>renders_providers_+_consumers_normally</option>
                     </select>
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
@@ -73,6 +73,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     >
                         <option value='' />
                         <option value='toHaveTextContext'>toHaveTextContext</option>
+                        <option value='toBeInTheDocument'>toBeInTheDocument</option>
                         <option value='toBe'>toBe</option>
                     </select>
                     <span id={styles.hastooltip} role='tooltip'>
@@ -105,7 +106,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
                         <span id={styles.tooltip}>
-                            <ToolTip toolTipType={middleware.querySelector} />
+                            <ToolTip toolTipType={context.querySelector} />
                         </span>
                     </span>
 
@@ -117,7 +118,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
                         <span id={styles.tooltip}>
-                            <ToolTip toolTipType={middleware.querySelector} />
+                            <ToolTip toolTipType={context.querySelector} />
                         </span>
                     </span>
 
@@ -129,7 +130,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
                         <span id={styles.tooltip}>
-                            <ToolTip toolTipType={middleware.querySelector} />
+                            <ToolTip toolTipType={context.querySelector} />
                         </span>
                     </span>
 
@@ -141,7 +142,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
                         <span id={styles.tooltip}>
-                            <ToolTip toolTipType={middleware.querySelector} />
+                            <ToolTip toolTipType={context.querySelector} />
                         </span>
                     </span>
 
@@ -153,7 +154,7 @@ const Context = ({ context, index, dispatchToTestCase }) => {
                     <span id={styles.hastooltip} role='tooltip'>
                         <img src={questionIcon} alt='help' />
                         <span id={styles.tooltip}>
-                            <ToolTip toolTipType={middleware.querySelector} />
+                            <ToolTip toolTipType={context.querySelector} />
                         </span>
                     </span>
                 </div>

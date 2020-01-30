@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../TestMenu/TestMenu.module.scss';
-import { addAction, addAssertion, addRender, addAsync, addReducer, addActionCreator, addMiddleware } from '../../../context/testCaseActions';
+import { addAction, addAssertion, addRender, addAsync, addReducer, addActionCreator, addMiddleware, addContexts } from '../../../context/testCaseActions';
 import NewTestModal from '../../NavBar/Modals/NewTestModal';
 
 const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
@@ -33,7 +33,7 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
     dispatchToTestCase(addMiddleware());
   };
   const handleAddContext = e => {
-    dispatchToTestCase(addContext());
+    dispatchToTestCase(addContexts());
   };
   const handleAddAsync = e => {
     dispatchToTestCase(addAsync());

@@ -45,7 +45,7 @@ const createMiddleware = () => ({ /* renders the action card when the "action" b
   suggestions: [],
 });
 
-const createContext = () => ({ /* renders the action card when the "action" button is clicked */
+const createContexts = () => ({ /* renders the action card when the "action" button is clicked */
   id: statementId++,  
   type: 'context',  
   queryType: '',  
@@ -189,7 +189,7 @@ export const testCaseReducer = (state, action) => {
 
       case actionTypes.ADD_CONTEXT:
           lastAssertionStatement = statements.pop();  /* popping off the last render */
-          statements.push(createContext(), lastAssertionStatement);   /* pushing the new middlewaew the user created into the statements array and then adding back the last render */
+          statements.push(createContexts(), lastAssertionStatement);   /* pushing the new middlewaew the user created into the statements array and then adding back the last render */
           return {
             ...state,
             statements,
@@ -212,9 +212,9 @@ export const testCaseReducer = (state, action) => {
               statement.queryValue = action.queryValue;
               statement.values = action.values;
               statement.textNode = action.textNodes;
-              statement.providerComponent = providerComponent;
-              statement.consumerComponent = consumerComponent;
-              statment.context = action.context;
+              statement.providerComponent = action.providerComponent;
+              statement.consumerComponent = action.consumerComponent;
+              statement.context = action.context;
               statement.suggestions = action.suggestions;
             }
             return statement;

@@ -84,16 +84,16 @@ export const updateMiddleware = ({
   suggestions,
 });
 
-export const addContext = () => ({
+export const addContexts = () => ({
   type: actionTypes.ADD_CONTEXT,
 });
 
-export const deleteContext = id => ({
+export const deleteContexts = id => ({
   type: actionTypes.DELETE_CONTEXT,
   id,
 });
 
-export const updateContext = ({
+export const updateContexts = ({
   id,
   eventType,
   queryType,
