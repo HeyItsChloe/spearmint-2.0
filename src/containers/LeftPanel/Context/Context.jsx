@@ -13,7 +13,7 @@ const closeIcon = require('../../../assets/images/close.png');
 const dragIcon = require('../../../assets/images/drag-vertical.png');
 
 
-const Middleware = ({ middleware, index, dispatchToTestCase }) => {
+const Context = ({ context, index, dispatchToTestCase }) => {
 
     const handleChangeContextFields = (e, field) => { 
         let updatedContext = { ...context };
@@ -163,5 +163,7 @@ const Middleware = ({ middleware, index, dispatchToTestCase }) => {
             </div>
         )}
         </Draggable>
-    )
+    ) 
 }
+
+export default Context;

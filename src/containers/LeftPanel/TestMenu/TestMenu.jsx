@@ -1,10 +1,6 @@
-/**
- * the test nav bar at the top of the screen 
- */
-
 import React, { useState } from 'react';
 import styles from '../TestMenu/TestMenu.module.scss';
-import { addAction, addAssertion, addRender, addMiddleware } from '../../../context/testCaseActions';
+import { addAction, addAssertion, addRender, addAsync, addReducer, addActionCreator, addMiddleware } from '../../../context/testCaseActions';
 import NewTestModal from '../../NavBar/Modals/NewTestModal';
 
 const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
@@ -27,8 +23,20 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
   const handleAddRender = e => {
     dispatchToTestCase(addRender());
   };
-  const handleAddMiddleware = e => {
+  const handleAddReducer = e => {
+    dispatchToTestCase(addReducer());
+  };
+  const handleAddActionCreator = e => {
+    dispatchToTestCase(addActionCreator());
+  };
+    const handleAddMiddleware = e => {
     dispatchToTestCase(addMiddleware());
+  };
+  const handleAddContext = e => {
+    dispatchToTestCase(addContext());
+  };
+  const handleAddAsync = e => {
+    dispatchToTestCase(addAsync());
   };
 
   return (
@@ -45,12 +53,22 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
         </div>
         <div id={styles.right}>
           <button onClick={handleAddAction}>Action</button>
-          <button onClick={handleAddMiddleware}>Middleware</button>
           <button data-testid='assertionButton' onClick={handleAddAssertion}>
             Assertion
           </button>
+          <button data-testid='reducerButton' onClick={handleAddReducer}>
+            Reducer
+          </button>
           <button data-testid='rerenderButton' onClick={handleAddRender}>
             Rerender
+          </button>
+          <button data-testid='asyncButton' onClick={handleAddAsync}>
+            Async Action Creator
+          </button>
+          <button data-testid='middlewareButton' onClick={handleAddMiddleware}>Middleware</button>
+          <button data-testid='contextButton' onClick={handleAddContext}>Context</button>
+          <button data-testid='actionCreatorButton' onClick={handleAddActionCreator}>
+            Action Creator
           </button>
         </div>
       </div>

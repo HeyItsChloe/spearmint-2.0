@@ -1,8 +1,3 @@
-/**
- * all of the actions used to update state for test cases
- * invoked in the testCase.jsx file
- */
-
 export const actionTypes = {
   UPDATE_STATEMENTS_ORDER: 'UPDATE_STATEMENTS_ORDER',
   UPDATE_TEST_STATEMENT: 'UPDATE_TEST_STATEMENT',
@@ -10,10 +5,14 @@ export const actionTypes = {
   ADD_ACTION: 'ADD_ACTION',
   DELETE_ACTION: 'DELETE_ACTION',
   UPDATE_ACTION: 'UPDATE_ACTION',
-
+  
   ADD_MIDDLEWARE: 'ADD_MIDDLEWARE',
   DELETE_MIDDLEWARE: 'DELETE_MIDDLEWARE',
   UPDATE_MIDDLEWARE: 'UPDATE_MIDDLEWARE',
+
+  ADD_CONTEXT: 'ADD_CONTEXT',
+  DELETE_CONTEXT: 'DELETE_CONTEXT',
+  UPDATE_CONTEXT: 'UPDATE_CONTEXT',
 
   ADD_ASSERTION: 'ADD_ASSERTION',
   DELETE_ASSERTION: 'DELETE_ASSERTION',
@@ -27,7 +26,20 @@ export const actionTypes = {
   DELETE_RENDER_PROP: 'DELETE_RENDER_PROP',
   UPDATE_RENDER_PROP: 'UPDATE_RENDER_PROPS',
 
+  ADD_ASYNC: 'ADD_ASYNC',
+  DELETE_ASYNC: 'DELETE_ASYNC',
+  UPDATE_ASYNC: 'UPDATE_ASYNC',
+  
+  ADD_ACTIONCREATOR: 'ADD_ACTIONCREATOR',
+  DELETE_ACTIONCREATOR: 'DELETE_ACTIONCREATOR',
+  UPDATE_ACTIONCREATOR: 'UPDATE_ACTIONCREATORS',
+
   CREATE_NEW_TEST: 'CREATE_NEW_TEST',
+
+  // Action type for reducer
+  ADD_REDUCER: 'ADD_REDUCER',
+  DELETE_REDUCER: 'DELETE_REDUCER',
+  UPDATE_REDUCER: 'UPDATE_REDUCER',
 };
 
 export const updateStatementsOrder = draggableStatements => ({
@@ -69,6 +81,46 @@ export const updateMiddleware = ({
   querySelector,
   queryValue,
   queryFunction,
+  suggestions,
+});
+
+export const addContext = () => ({
+  type: actionTypes.ADD_CONTEXT,
+});
+
+export const deleteContext = id => ({
+  type: actionTypes.DELETE_CONTEXT,
+  id,
+});
+
+export const updateContext = ({
+  id,
+  eventType,
+  queryType,
+  eventValue,
+  queryVariant,
+  querySelector,
+  queryValue,
+  values,
+  textNode,
+  providerComponent,
+  consumerComponent,
+  context,
+  suggestions,
+}) => ({
+  type: actionTypes.UPDATE_CONTEXT,
+  id,
+  eventType,
+  queryType,
+  eventValue,
+  queryVariant,
+  querySelector,
+  queryValue,
+  values,
+  textNode,
+  providerComponent,
+  consumerComponent,
+  context,
   suggestions,
 });
 
@@ -163,6 +215,96 @@ export const updateRenderProp = (renderId, propId, propKey, propValue) => ({
   propKey,
   propValue,
 });
+
+// Functions for Reducer
+export const addReducer = () => ({
+  type: actionTypes.ADD_REDUCER,
+});
+
+export const deleteReducer = id => ({
+  type: actionTypes.DELETE_REDUCER,
+  id,
+});
+
+export const updateReducer = ({
+  id,
+  queryVariant, // action
+  querySelector, // initial state
+  queryValue, //reducer name
+  isNot,
+  matcherType,
+  matcherValue, // updated state
+  suggestions,
+}) => ({
+  type: actionTypes.UPDATE_REDUCER,
+  id,
+  queryVariant,
+  querySelector,
+  queryValue,
+  isNot,
+  matcherType,
+  matcherValue,
+  suggestions,
+});
+
+export const addAsync = () => ({
+  type: actionTypes.ADD_ASYNC,
+});
+
+export const deleteAsync = id => ({
+  type: actionTypes.DELETE_ASYNC,
+  id,
+});
+
+export const updateAsync = ({
+  id,
+  asyncFunction,
+  method,
+  route,
+  store,
+  matcher,
+  expectedResponse,
+}) => ({
+  type: actionTypes.UPDATE_ASYNC,
+  id,
+  asyncFunction,
+  method,
+  route,
+  store,
+  matcher,
+  expectedResponse,
+});
+
+export const addActionCreator = () => ({
+  type: actionTypes.ADD_ACTIONCREATOR,
+});
+
+export const deleteActionCreator = id => ({
+  type: actionTypes.DELETE_ACTIONCREATOR,
+  id,
+});
+
+export const updateActionCreator = ({
+  id,
+  actionsFolder,
+  typesFolder,
+  actionCreatorFunc,
+  actionType,
+  payloadKey,
+  payloadType,
+  filePath,
+}) => ({
+  type: actionTypes.UPDATE_ACTIONCREATOR,
+  id,
+  actionsFolder,
+  typesFolder,
+  actionCreatorFunc,
+  actionType,
+  payloadKey,
+  payloadType,
+  filePath,
+});
+
 export const createNewTest = () => ({
   type: actionTypes.CREATE_NEW_TEST,
 });
