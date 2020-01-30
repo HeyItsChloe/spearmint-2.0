@@ -50,9 +50,7 @@ const createMiddleware = () => ({
 
 const createContexts = () => ({ /* renders the action card when the "action" button is clicked */
   id: statementId++,  
-  type: 'context',  
-  queryType: '',  
-  eventValue: null,  
+  type: 'context',    
   queryVariant: '',  
   querySelector: '',
   queryValue: '', 
@@ -61,7 +59,6 @@ const createContexts = () => ({ /* renders the action card when the "action" but
   providerComponent: '',
   consumerComponent: '',
   context: '',  
-  suggestions: [],
 });
 
 const createAction = () => ({
@@ -230,8 +227,6 @@ export const testCaseReducer = (state, action) => {
         case actionTypes.UPDATE_CONTEXT:
           statements = statements.map(statement => {  /* update statements if statement id === action id */
             if (statement.id === action.id) {
-              statement.queryType = action.queryType;
-              statement.eventValue = action.eventValue;
               statement.queryVariant = action.queryVariant;
               statement.querySelector = action.querySelector;
               statement.queryValue = action.queryValue;
@@ -240,7 +235,6 @@ export const testCaseReducer = (state, action) => {
               statement.providerComponent = action.providerComponent;
               statement.consumerComponent = action.consumerComponent;
               statement.context = action.context;
-              statement.suggestions = action.suggestions;
             }
             return statement;
           });

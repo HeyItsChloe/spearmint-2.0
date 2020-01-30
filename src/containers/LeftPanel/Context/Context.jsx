@@ -1,13 +1,8 @@
 import React, { useContext } from 'react';
 import styles from '../Context/Context.module.scss';
-//import styles2 from '../AutoComplete/AutoCompleteMockData.module.scss';
-
 import { deleteContexts, updateContexts } from '../../../context/testCaseActions';
 import { Draggable } from 'react-beautiful-dnd';
-//import AutoComplete from '../AutoComplete/AutoComplete';
-//import AutoCompleteMockData from '../AutoComplete/AutoCompleteMockData';
 import ToolTip from '../ToolTip/ToolTip';
-//import { MockDataContext } from '../../../context/mockDataReducer';
 const questionIcon = require('../../../assets/images/help-circle.png');
 const closeIcon = require('../../../assets/images/close.png');
 const dragIcon = require('../../../assets/images/drag-vertical.png');

@@ -104,8 +104,6 @@ export const deleteContexts = id => ({
 
 export const updateContexts = ({
   id,
-  eventType,
-  queryType,
   eventValue,
   queryVariant,
   querySelector,
@@ -115,12 +113,9 @@ export const updateContexts = ({
   providerComponent,
   consumerComponent,
   context,
-  suggestions,
 }) => ({
   type: actionTypes.UPDATE_CONTEXT,
   id,
-  eventType,
-  queryType,
   eventValue,
   queryVariant,
   querySelector,
@@ -130,7 +125,6 @@ export const updateContexts = ({
   providerComponent,
   consumerComponent,
   context,
-  suggestions,
 });
 
 export const addAction = () => ({
