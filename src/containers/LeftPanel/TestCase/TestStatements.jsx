@@ -11,8 +11,9 @@ import Context from '../Context/Context';
 import ActionCreator from '../ActionCreator/ActionCreator';
 import Async from '../Thunk/Thunk';
 import Reducer from '../Reducer/Reducer';
+import HookUpdates from '../HookUpdates/HookUpdates';
 
-const TestStatements = function TestStatements({ statements, dispatchToTestCase }) {  /* destructing from the reducer */
+const TestStatements = function TestStatements({ statements, dispatchToTestCase }) {
   return statements.map((statement, i) => {
     switch (statement.type) {
       case 'middleware':
@@ -76,6 +77,15 @@ const TestStatements = function TestStatements({ statements, dispatchToTestCase 
           <ActionCreator
             key={statement.id}
             actionCreator={statement}
+            index={i}
+            dispatchToTestCase={dispatchToTestCase}
+          />
+        );
+      case 'hook-updates':
+        return (
+          <HookUpdates
+            key={statement.id}
+            hookUpdates={statement}
             index={i}
             dispatchToTestCase={dispatchToTestCase}
           />

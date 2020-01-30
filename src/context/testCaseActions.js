@@ -5,7 +5,7 @@ export const actionTypes = {
   ADD_ACTION: 'ADD_ACTION',
   DELETE_ACTION: 'DELETE_ACTION',
   UPDATE_ACTION: 'UPDATE_ACTION',
-  
+
   ADD_MIDDLEWARE: 'ADD_MIDDLEWARE',
   DELETE_MIDDLEWARE: 'DELETE_MIDDLEWARE',
   UPDATE_MIDDLEWARE: 'UPDATE_MIDDLEWARE',
@@ -29,17 +29,26 @@ export const actionTypes = {
   ADD_ASYNC: 'ADD_ASYNC',
   DELETE_ASYNC: 'DELETE_ASYNC',
   UPDATE_ASYNC: 'UPDATE_ASYNC',
-  
+
   ADD_ACTIONCREATOR: 'ADD_ACTIONCREATOR',
   DELETE_ACTIONCREATOR: 'DELETE_ACTIONCREATOR',
   UPDATE_ACTIONCREATOR: 'UPDATE_ACTIONCREATORS',
 
-  CREATE_NEW_TEST: 'CREATE_NEW_TEST',
-
-  // Action type for reducer
   ADD_REDUCER: 'ADD_REDUCER',
   DELETE_REDUCER: 'DELETE_REDUCER',
   UPDATE_REDUCER: 'UPDATE_REDUCER',
+
+  ADD_HOOK_UPDATES: 'ADD_HOOK_UPDATES',
+  DELETE_HOOK_UPDATES: 'DELETE_HOOK_UPDATE',
+  UPDATE_HOOK_UPDATES: 'UPDATE_HOOK_UPDATES',
+
+  // Action types for filepath
+  UPDATE_ACTIONS_FILEPATH: 'UPDATE_ACTIONS_FILEPATH',
+  UPDATE_TYPES_FILEPATH: 'UPDATE_TYPES_FILEPATH',
+  UPDATE_REDUCERS_FILEPATH: 'UPDATE_REDUCERS_FILEPATH',
+  UPDATE_MIDDLEWARES_FILEPATH: 'UPDATE_MIDDLEWARES_FILEPATH',
+
+  CREATE_NEW_TEST: 'CREATE_NEW_TEST',
 };
 
 export const updateStatementsOrder = draggableStatements => ({
@@ -216,7 +225,6 @@ export const updateRenderProp = (renderId, propId, propKey, propValue) => ({
   propValue,
 });
 
-// Functions for Reducer
 export const addReducer = () => ({
   type: actionTypes.ADD_REDUCER,
 });
@@ -228,12 +236,12 @@ export const deleteReducer = id => ({
 
 export const updateReducer = ({
   id,
-  queryVariant, // action
-  querySelector, // initial state
-  queryValue, //reducer name
+  queryVariant,
+  querySelector,
+  queryValue,
   isNot,
   matcherType,
-  matcherValue, // updated state
+  matcherValue,
   suggestions,
 }) => ({
   type: actionTypes.UPDATE_REDUCER,
@@ -303,6 +311,58 @@ export const updateActionCreator = ({
   payloadKey,
   payloadType,
   filePath,
+});
+
+export const addHookUpdates = () => ({
+  type: actionTypes.ADD_HOOK_UPDATES,
+});
+
+export const deleteHookUpdates = id => ({
+  type: actionTypes.DELETE_HOOK_UPDATES,
+  id,
+});
+
+export const updateHookUpdates = ({
+  id,
+  hook,
+  hookFile,
+  callbackFunc,
+  managedState,
+  updatedState,
+  filePath,
+}) => ({
+  type: actionTypes.UPDATE_HOOK_UPDATES,
+  id,
+  hook,
+  hookFile,
+  callbackFunc,
+  managedState,
+  updatedState,
+  filePath,
+});
+// update filePath for actions file
+export const updateActionsFilePath = (actionsFileName, filePath) => ({
+  type: actionTypes.UPDATE_ACTIONS_FILEPATH,
+  actionsFileName,
+  filePath,
+});
+
+export const updateTypesFilePath = (typesFileName, typesFilePath) => ({
+  type: actionTypes.UPDATE_TYPES_FILEPATH,
+  typesFileName,
+  typesFilePath,
+});
+
+export const updateReducersFilePath = (reducersFileName, reducersFilePath) => ({
+  type: actionTypes.UPDATE_REDUCERS_FILEPATH,
+  reducersFileName,
+  reducersFilePath,
+});
+
+export const updateMiddlewaresFilePath = (middlewaresFileName, middlewaresFilePath) => ({
+  type: actionTypes.UPDATE_MIDDLEWARES_FILEPATH,
+  middlewaresFileName,
+  middlewaresFilePath,
 });
 
 export const createNewTest = () => ({

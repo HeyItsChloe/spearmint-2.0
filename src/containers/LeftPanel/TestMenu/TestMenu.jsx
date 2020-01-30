@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import styles from '../TestMenu/TestMenu.module.scss';
 import { addAction, addAssertion, addRender, addAsync, addReducer, addActionCreator, addMiddleware, addContexts } from '../../../context/testCaseActions';
+import {
+  addAction,
+  addAssertion,
+  addRender,
+  addAsync,
+  addReducer,
+  addActionCreator,
+  addMiddleware,
+  addHookUpdates,
+} from '../../../context/testCaseActions';
 import NewTestModal from '../../NavBar/Modals/NewTestModal';
 
 const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
@@ -9,11 +19,9 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
   const openModal = () => {
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
   const handleAddAction = e => {
     dispatchToTestCase(addAction());
   };
@@ -29,7 +37,7 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
   const handleAddActionCreator = e => {
     dispatchToTestCase(addActionCreator());
   };
-    const handleAddMiddleware = e => {
+  const handleAddMiddleware = e => {
     dispatchToTestCase(addMiddleware());
   };
   const handleAddContext = e => {
@@ -37,6 +45,9 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
   };
   const handleAddAsync = e => {
     dispatchToTestCase(addAsync());
+  };
+  const handleAddHookUpdates = e => {
+    dispatchToTestCase(addHookUpdates());
   };
 
   return (
@@ -51,24 +62,30 @@ const TestMenu = ({ dispatchToTestCase, dispatchToMockData }) => {
             dispatchToTestCase={dispatchToTestCase}
           />
         </div>
-        <div id={styles.right}>
+        <div id={styles.right} style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
           <button onClick={handleAddAction}>Action</button>
           <button data-testid='assertionButton' onClick={handleAddAssertion}>
             Assertion
           </button>
-          <button data-testid='reducerButton' onClick={handleAddReducer}>
-            Reducer
-          </button>
           <button data-testid='rerenderButton' onClick={handleAddRender}>
             Rerender
+          </button>
+          <button data-testid='reducerButton' onClick={handleAddReducer}>
+            Reducer
           </button>
           <button data-testid='asyncButton' onClick={handleAddAsync}>
             Async Action Creator
           </button>
           <button data-testid='middlewareButton' onClick={handleAddMiddleware}>Middleware</button>
           <button data-testid='contextButton' onClick={handleAddContext}>Context</button>
+          <button data-testid='middlewareButton' onClick={handleAddMiddleware}>
+            Middleware
+          </button>
           <button data-testid='actionCreatorButton' onClick={handleAddActionCreator}>
             Action Creator
+          </button>
+          <button data-testid='hookUpdatesButton' onClick={handleAddHookUpdates}>
+            Hooks: Updates
           </button>
         </div>
       </div>
