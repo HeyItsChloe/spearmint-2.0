@@ -62,7 +62,8 @@ const ExportFileModal = ({ isExportModalOpen, closeExportModal }) => {  /* destr
     testFileCode += `import { render, fireEvent } from 'react-testing-library'; 
     import { build, fake } from 'test-data-bot'; 
     import 'react-testing-library/cleanup-after-each'; 
-    import 'jest-dom/extend-expect'
+    import 'jest-dom/extend-expect';
+    import { NameContext, NameProvider, NameConsumer } from '../react-context';
     \n`;
   };
 
