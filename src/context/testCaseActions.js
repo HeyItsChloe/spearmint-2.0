@@ -42,7 +42,6 @@ export const actionTypes = {
   DELETE_HOOK_UPDATES: 'DELETE_HOOK_UPDATE',
   UPDATE_HOOK_UPDATES: 'UPDATE_HOOK_UPDATES',
 
-  // Action types for filepath
   UPDATE_ACTIONS_FILEPATH: 'UPDATE_ACTIONS_FILEPATH',
   UPDATE_TYPES_FILEPATH: 'UPDATE_TYPES_FILEPATH',
   UPDATE_REDUCERS_FILEPATH: 'UPDATE_REDUCERS_FILEPATH',
@@ -219,6 +218,38 @@ export const updateRenderProp = (renderId, propId, propKey, propValue) => ({
   propValue,
 });
 
+export const addMiddleware = () => ({
+  type: actionTypes.ADD_MIDDLEWARE,
+});
+
+export const deleteMiddleware = id => ({
+  type: actionTypes.DELETE_MIDDLEWARE,
+  id,
+});
+
+export const updateMiddleware = ({
+  id,
+  middlewaresFileName,
+  middlewaresFilePath,
+  queryType,
+  eventValue,
+  queryVariant,
+  querySelector,
+  queryValue,
+  queryFunction,
+}) => ({
+  type: actionTypes.UPDATE_MIDDLEWARE,
+  id,
+  middlewaresFileName,
+  middlewaresFilePath,
+  queryType,
+  eventValue,
+  queryVariant,
+  querySelector,
+  queryValue,
+  queryFunction,
+});
+
 export const addReducer = () => ({
   type: actionTypes.ADD_REDUCER,
 });
@@ -233,20 +264,22 @@ export const updateReducer = ({
   queryVariant,
   querySelector,
   queryValue,
-  isNot,
-  matcherType,
+  typesFileName,
+  typesFilePath,
+  reducersFileName,
+  reducersFilePath,
   matcherValue,
-  suggestions,
 }) => ({
   type: actionTypes.UPDATE_REDUCER,
   id,
   queryVariant,
   querySelector,
   queryValue,
-  isNot,
-  matcherType,
+  typesFileName,
+  typesFilePath,
+  reducersFileName,
+  reducersFilePath,
   matcherValue,
-  suggestions,
 });
 
 export const addAsync = () => ({
@@ -260,6 +293,10 @@ export const deleteAsync = id => ({
 
 export const updateAsync = ({
   id,
+  actionsFileName,
+  filePath,
+  typesFileName,
+  typesFilePath,
   asyncFunction,
   method,
   route,
@@ -269,6 +306,10 @@ export const updateAsync = ({
 }) => ({
   type: actionTypes.UPDATE_ASYNC,
   id,
+  actionsFileName,
+  filePath,
+  typesFileName,
+  typesFilePath,
   asyncFunction,
   method,
   route,
@@ -288,23 +329,25 @@ export const deleteActionCreator = id => ({
 
 export const updateActionCreator = ({
   id,
-  actionsFolder,
-  typesFolder,
+  actionsFileName,
+  filePath,
+  typesFileName,
+  typesFilePath,
   actionCreatorFunc,
   actionType,
   payloadKey,
   payloadType,
-  filePath,
 }) => ({
   type: actionTypes.UPDATE_ACTIONCREATOR,
   id,
-  actionsFolder,
-  typesFolder,
+  actionsFileName,
+  filePath,
+  typesFileName,
+  typesFilePath,
   actionCreatorFunc,
   actionType,
   payloadKey,
   payloadType,
-  filePath,
 });
 
 export const addHookUpdates = () => ({
@@ -334,7 +377,7 @@ export const updateHookUpdates = ({
   updatedState,
   filePath,
 });
-// update filePath for actions file
+
 export const updateActionsFilePath = (actionsFileName, filePath) => ({
   type: actionTypes.UPDATE_ACTIONS_FILEPATH,
   actionsFileName,
