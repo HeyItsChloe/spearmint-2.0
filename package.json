@@ -14,7 +14,7 @@
       "buildResources": "build"
     }
   },
-  "main": "public/electron.js",
+  "main": "electron.js",
   "homepage": "./",
   "private": true,
   "dependencies": {

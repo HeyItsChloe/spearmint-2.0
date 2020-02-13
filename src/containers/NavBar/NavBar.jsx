@@ -58,18 +58,18 @@ const NavBar = () => {
    */
   return (
     <div id={styles.navBar}>
-      <button className={styles.navBtn} onClick={handleToggleFileDirectory}>
+      <button id='newProject' className={styles.navBtn} onClick={handleToggleFileDirectory}>
         <img src={menuIcon} className={styles.icons} alt='fileExplorer' />
       </button>
-      <button className={styles.navBtn} onClick={openExportModal}>
+      <button id='exportButton' className={styles.navBtn} onClick={openExportModal}>
         <img src={exportIcon} className={styles.icons} alt='export' title='Export a test file' />
       </button>
       <ExportFileModal isExportModalOpen={isExportModalOpen} closeExportModal={closeExportModal} />
       <OpenFolder />
-      <button className={styles.navBtn} onClick={handleEditorToggle}>
+      <button id='codeView' className={styles.navBtn} onClick={handleEditorToggle}>
         <img src={codeIcon} className={styles.icons} alt='codeview' title='Code View' />
       </button>
-      <button className={styles.navBtn} onClick={handleBrowserToggle}>
+      <button id='browserView' className={styles.navBtn} onClick={handleBrowserToggle}>
         <img src={browserIcon} className={styles.icons} alt='browserview' title='Browser view' />
       </button>
       <BrowserModal isBrowserModalOpen={isBrowserModalOpen} closeBrowserModal={closeBrowserModal} />
